@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.biz.rbooks.persistence.MemberDao">
+  
+	<insert id="insert" parameterType="memberDTO">
+	
+		INSERT INTO tbl_member(
+			M_ID,
+			M_PASSWORD,
+			M_LOGIN_DATE,
+			M_REM
+		)VALUES(
+			#{m_id,jdbcType=VARCHAR},
+			#{m_password,jdbcType=VARCHAR},
+			#{m_login_date,jdbcType=VARCHAR},
+			#{m_rem,jdbcType=VARCHAR}
+		)
+		
+	</insert>
+	
+	<select id="findById" resultType="memberDTO">
+		SELECT * FROM tbl_member WHERE m_id = #{m_id}
+	</select>
+	
+	<update id="update" parameterType="memberDTO">
+		UPDATE TBL_MEMBER
+		SET
+			M_PASSWORD=#{m_password,jdbcType=VARCHAR},
+			M_LOGIN_DATE=#{m_login_date,jdbcType=VARCHAR},
+			M_REM=#{m_rem,jdbcType=VARCHAR}
+		WHERE
+			M_ID=#{m_id,jdbcType=VARCHAR}
+		
+			
+	</update>  
+</mapper>
+
+
+

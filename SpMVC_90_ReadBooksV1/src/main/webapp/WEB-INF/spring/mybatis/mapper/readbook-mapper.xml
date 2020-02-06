@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.biz.rbooks.persistence.ReadBookDao">
+
+	<select id="findBySeq" resultType="readBookDTO">
+		SELECT * FROM tbl_read_book WHERE rb_seq = #{rb_seq}
+	</select>
+	
+	 <update id="update" parameterType="readBookDTO">
+		UPDATE tbl_read_book
+		SET 
+			RB_DATE	= #{rb_date,jdbcType=VARCHAR},
+			RB_STIME = #{rb_stime,jdbcType=VARCHAR},
+			RB_RTIME = #{rb_rtime,jdbcType=VARCHAR},
+			RB_SUBJECT = #{rb_subject,jdbcType=VARCHAR},
+			RB_TEXT	= #{rb_text,jdbcType=VARCHAR},
+			RB_STAR	= #{rb_star,jdbcType=VARCHAR}
+		WHERE
+			RB_SEQ = #{rb_seq,jdbcType=VARCHAR}
+		
+	</update>
+
+	<insert id="insert" parameterType="readBookDTO">
+	
+		INSERT INTO tbl_read_book(
+			RB_SEQ,
+			RB_BCODE,
+			RB_DATE,
+			RB_STIME,
+			RB_RTIME,
+			RB_SUBJECT,
+			RB_TEXT,
+			RB_STAR,
+			RB_WRITER
+		)VALUES(
+			SEQ_TBL_READ_BOOK.NEXTVAL,
+			#{rb_bcode,jdbcType=VARCHAR},
+			#{rb_date,jdbcType=VARCHAR},
+			#{rb_stime,jdbcType=VARCHAR},
+			#{rb_rtime,jdbcType=VARCHAR},
+			#{rb_subject,jdbcType=VARCHAR},
+			#{rb_text,jdbcType=VARCHAR},
+			#{rb_star,jdbcType=VARCHAR},
+			#{rb_writer,jdbcType=VARCHAR}
+		)
+		
+	
+	</insert>
+	
+	<delete id="delete" parameterType="Long">
+		DELETE FROM tbl_read_book WHERE rb_seq = #{rb_seq}
+	</delete>
+
+</mapper>
