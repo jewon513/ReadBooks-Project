@@ -105,7 +105,7 @@ public class BooksController {
 		
 		model.addAttribute("Controller", "bookwrite");
 		
-		return "home";
+		return "bookwrite";
 	}
 	
 	@RequestMapping(value = "/write", method = RequestMethod.POST)
@@ -141,7 +141,7 @@ public class BooksController {
 		model.addAttribute("Controller","update");
 		model.addAttribute("booksDTO", booksDTO);
 		
-		return "home";
+		return "bookwrite";
 	}
 	
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
@@ -183,7 +183,7 @@ public class BooksController {
 			model.addAttribute("naverSearch",null);
 			e.printStackTrace();
 		}
-		return "include/naverSearch";
+		return "include/include-naverSearch";
 		
 	}
 	

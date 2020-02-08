@@ -7,22 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>My homepage</title>
-
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-
-<!-- Jewons Css -->
-<link rel="stylesheet" href="${rootPath}/css/main.css">
-
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-<!-- Popper JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<%@ include file="/WEB-INF/views/include/include-title.jsp"%>
 <head>
 <meta charset="UTF-8">
 <title>My homepage</title>
@@ -148,6 +133,9 @@ button:focus {
 </head>
 
 <body>
+
+	<!-- nav -->
+	<%@ include file="/WEB-INF/views/include/include-nav.jsp"%>
 
 	<div class="container login-container">
 		<div class="row">

@@ -35,7 +35,13 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String login() {
+	public String login(HttpSession httpSession) {
+		
+		MemberDTO memberDTO = (MemberDTO) httpSession.getAttribute("MEMBER");
+		
+		if(memberDTO != null) {
+			return "redirect:/";
+		}
 		
 		return "login";
 		

@@ -1,7 +1,6 @@
 package com.biz.rbooks.controller;
 
 import javax.servlet.http.HttpSession;
-import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -60,7 +59,21 @@ public class ReadBookController {
 	}
 	
 	
-	@RequestMapping(value = "/detail", method = RequestMethod.POST)
+	@RequestMapping(value = "/write", method = RequestMethod.GET)
+	public String readBookWrite(Model model, String b_code, @ModelAttribute("readBookDTO") ReadBookDTO readBookDTO) {
+		
+		BooksDTO booksDTO = booksService.findByBCode(b_code);
+		
+		// 기본적으로 독서일자와 독서 시간을 현재 시간으로 setting 해줌
+		readBookDTO = readBookService.defaultSetting(readBookDTO);
+		readBookDTO.setRb_bcode(booksDTO.getB_code());
+		
+		model.addAttribute("booksDTO",booksDTO);
+		
+		return "readbookwrite";
+	}
+	
+	@RequestMapping(value = "/write", method = RequestMethod.POST)
 	public String booksDetailWrite(@ModelAttribute("readBookDTO") ReadBookDTO readBookDTO, HttpSession httpSession, Model model) {
 		
 		log.debug("작성하려고 한 readBookDTO :" + readBookDTO.toString());
@@ -89,13 +102,15 @@ public class ReadBookController {
 	public String booksDetailUpdate(@ModelAttribute("readBookDTO") ReadBookDTO readBookDTO, @RequestParam("rb_seq") String rb_seq ,Model model) {
 		
 		readBookDTO = readBookService.findBySeq(rb_seq);
+		BooksDTO booksDTO = booksService.findByBCode(readBookDTO.getRb_bcode());
 		
 		log.debug("RB_SEQ로 찾은 READBOOKDTO (UPDATE.GET) : " + readBookDTO.toString());
 		
 		model.addAttribute("Controller", "update");
 		model.addAttribute("readBookDTO", readBookDTO);
+		model.addAttribute("booksDTO",booksDTO);
 		
-		return "detail";
+		return "readbookwrite";
 	}
 	
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
