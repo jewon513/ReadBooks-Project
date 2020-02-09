@@ -65,9 +65,10 @@ button:focus {
 <script type="text/javascript">
 
 	$(function(){
-		$("#join").click(function(){
+		
+		function checkjoin(){
 			
-			var getCheck= RegExp(/^[a-zA-Z0-9]{4,19}$/);
+			var getCheck= /^[a-zA-Z0-9]{4,19}$/
 			var checkPW = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/
 
 			var id = $("#m_id").val()
@@ -124,6 +125,16 @@ button:focus {
 				}
 				
 			})
+			
+		}
+		
+		$("#join").click(checkjoin)
+		
+		$("input").keypress(function(key){
+			
+			if(key.keyCode == 13){
+				checkjoin()
+			}
 			
 		})
 	})	

@@ -13,8 +13,6 @@
 		UPDATE tbl_read_book
 		SET 
 			RB_DATE	= #{rb_date,jdbcType=VARCHAR},
-			RB_STIME = #{rb_stime,jdbcType=VARCHAR},
-			RB_RTIME = #{rb_rtime,jdbcType=VARCHAR},
 			RB_SUBJECT = #{rb_subject,jdbcType=VARCHAR},
 			RB_TEXT	= #{rb_text,jdbcType=VARCHAR},
 			RB_STAR	= #{rb_star,jdbcType=VARCHAR}
@@ -29,8 +27,7 @@
 			RB_SEQ,
 			RB_BCODE,
 			RB_DATE,
-			RB_STIME,
-			RB_RTIME,
+			RB_REGIDATE,
 			RB_SUBJECT,
 			RB_TEXT,
 			RB_STAR,
@@ -39,8 +36,7 @@
 			SEQ_TBL_READ_BOOK.NEXTVAL,
 			#{rb_bcode,jdbcType=VARCHAR},
 			#{rb_date,jdbcType=VARCHAR},
-			#{rb_stime,jdbcType=VARCHAR},
-			#{rb_rtime,jdbcType=VARCHAR},
+			#{rb_regidate,jdbcType=VARCHAR},
 			#{rb_subject,jdbcType=VARCHAR},
 			#{rb_text,jdbcType=VARCHAR},
 			#{rb_star,jdbcType=VARCHAR},

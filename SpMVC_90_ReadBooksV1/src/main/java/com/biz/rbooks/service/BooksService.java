@@ -50,6 +50,8 @@ public class BooksService {
 	}
 
 	public int booksWrite(BooksDTO booksDTO) {
+		
+		booksDTO.setB_code(booksDTO.getB_code().replace("-", ""));
 
 		int ret = booksDao.insert(booksDTO);
 		

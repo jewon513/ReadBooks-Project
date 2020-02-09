@@ -155,7 +155,6 @@
 					data : {search : search},
 					type : "POST",
 					success : function(result){
-						alert(result)
 						$(".modal-body").html(result)
 						
 					},

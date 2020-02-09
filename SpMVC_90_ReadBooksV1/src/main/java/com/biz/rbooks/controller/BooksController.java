@@ -58,6 +58,10 @@ public class BooksController {
 		
 		PageDTO pageDTO = pageService.getPagination(booksService.getBooksCount(), currentPageNo);
 		
+		if(pageDTO==null) {
+			return "home";
+		}
+		
 		List<BooksDTO> booksList = booksService.selectPagination(pageDTO.getOffset(), pageDTO.getLimit());
 		
 		log.debug("북 리스트 : " + booksList.toString());
@@ -113,7 +117,6 @@ public class BooksController {
 		
 		int ret = booksService.booksWrite(booksDTO);
 		
-
 		return "redirect:/";
 	}
 	
@@ -170,7 +173,7 @@ public class BooksController {
 	}
 	
 	@RequestMapping(value = "naverSearch", method = RequestMethod.POST, produces = "application/text; charset=utf8")
-	public String test(@RequestParam(value = "search", required = false, defaultValue = "") String search, 
+	public String bookSearchNaver(@RequestParam(value = "search", required = false, defaultValue = "") String search, 
 			@RequestParam(value = "currentPageNo", required = false, defaultValue = "1")int currentPageNo,
 			Model model) {
 			

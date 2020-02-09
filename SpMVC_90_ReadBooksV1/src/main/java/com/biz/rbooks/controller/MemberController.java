@@ -81,8 +81,6 @@ public class MemberController {
 	@RequestMapping(value = "/join", method = RequestMethod.POST)
 	public String joinPost(@ModelAttribute("memberDTO") MemberDTO memberDTO) {
 		
-		log.debug("회원가입 정보로 날라옴 : " + memberDTO.getM_id() + memberDTO.getM_password());
-		
 		int ret = memberservice.memberJoin(memberDTO);
 		
 		if(ret>0) {

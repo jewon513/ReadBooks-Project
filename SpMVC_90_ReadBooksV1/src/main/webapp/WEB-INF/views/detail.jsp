@@ -114,6 +114,7 @@
 	
 	.div-subject{
 		margin:5px 0;
+		font-weight: bold;
 	}
 </style>
 
@@ -152,7 +153,7 @@
 			<c:otherwise>
 				<c:forEach items="${booksDTO.readBookList}" var="vo">
 					<div class="row align-items-center read-list" data-toggle="modal" data-target="#a${vo.rb_seq}">
-						<div class="col-md-3">${vo.rb_date}</div>
+						<div class="col-md-3">${vo.rb_regidate}</div>
 						<div class="col-md-8 div-subject">${vo.rb_subject}</div>
 						<div class="col-md-1">${vo.rb_star}점</div>
 					</div>
@@ -168,6 +169,7 @@
 
 								<!-- Modal body -->
 								<div class="modal-body">
+									<span class="text-info">작성일자 :</span> ${vo.rb_regidate}<br>
 									<span class="text-info">독서일자 :</span> ${vo.rb_date}<br>
 									<span class="text-info">독서점수 :</span> ${vo.rb_star}<br>
 									<p>${vo.rb_text}</p>

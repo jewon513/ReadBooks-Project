@@ -46,7 +46,7 @@
 	<div class="container">
 		<c:choose>
 			<c:when test="${booksList == null}">
-				<h3>검색 결과가 없습니다.</h3>
+				<h3>등록된 도서가 없습니다.</h3>
 				<hr>
 			</c:when>
 			<c:otherwise>
@@ -65,19 +65,21 @@
 		</c:choose>
 	</div>
 
-	<ul class="pagination justify-content-center">
-		<li class="page-item"><a class="page-link" href="${rootPath}/books/${Controller}?currentPageNo=${PAGE.firstPageNo}&b_name=${BNAME}">처음</a></li>
-		<li class="page-item"><a class="page-link" href="${rootPath}/books/${Controller}?currentPageNo=${PAGE.prePageNo}&b_name=${BNAME}">이전</a></li>
-		<c:forEach begin="${PAGE.startPageNo}" end="${PAGE.endPageNo}" var="pageNo">
-			<li class="page-item <c:if test="${PAGE.currentPageNo == pageNo}">active</c:if>"><a class="page-link" href="${rootPath}/books/${Controller}?currentPageNo=${pageNo}&b_name=${BNAME}">${pageNo}</a></li>
-		</c:forEach>
-		<li class="page-item"><a class="page-link" href="${rootPath}/books/${Controller}?currentPageNo=${PAGE.nextPageNo}&b_name=${BNAME}">다음</a></li>
-		<li class="page-item"><a class="page-link" href="${rootPath}/books/${Controller}?currentPageNo=${PAGE.finalPageNo}&b_name=${BNAME}">끝</a></li>
-	</ul>
+	<c:if test="${booksList != null}">
+		<ul class="pagination justify-content-center">
+			<li class="page-item"><a class="page-link" href="${rootPath}/books/${Controller}?currentPageNo=${PAGE.firstPageNo}&b_name=${BNAME}">처음</a></li>
+			<li class="page-item"><a class="page-link" href="${rootPath}/books/${Controller}?currentPageNo=${PAGE.prePageNo}&b_name=${BNAME}">이전</a></li>
+			<c:forEach begin="${PAGE.startPageNo}" end="${PAGE.endPageNo}" var="pageNo">
+				<li class="page-item <c:if test="${PAGE.currentPageNo == pageNo}">active</c:if>"><a class="page-link" href="${rootPath}/books/${Controller}?currentPageNo=${pageNo}&b_name=${BNAME}">${pageNo}</a></li>
+			</c:forEach>
+			<li class="page-item"><a class="page-link" href="${rootPath}/books/${Controller}?currentPageNo=${PAGE.nextPageNo}&b_name=${BNAME}">다음</a></li>
+			<li class="page-item"><a class="page-link" href="${rootPath}/books/${Controller}?currentPageNo=${PAGE.finalPageNo}&b_name=${BNAME}">끝</a></li>
+		</ul>
+	</c:if>
 	
 	<div class="container">
 		<form class="form-inline justify-content-center" action="${rootPath}/books/search" method="get">
-	    	<input class="form-control mr-sm-4" type="text" placeholder="Search" name="b_name">
+	    	<input class="form-control" type="text" placeholder="Search" name="b_name">
  	 	</form>
 	</div>
 	

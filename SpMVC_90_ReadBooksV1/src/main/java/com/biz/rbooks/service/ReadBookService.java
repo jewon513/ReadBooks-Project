@@ -32,14 +32,11 @@ public class ReadBookService {
 		
 		Date date = new Date();
 		SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd");
-		SimpleDateFormat sf = new SimpleDateFormat("HH:mm:dd");
 		
 		String rb_date = sd.format(date);
-		String rb_stime = sf.format(date);
 		
 		readBookDTO.setRb_date(rb_date);
-		readBookDTO.setRb_stime(rb_stime);
-		readBookDTO.setRb_rtime(0);
+		readBookDTO.setRb_regidate(rb_date);
 		
 		return readBookDTO;
 	}

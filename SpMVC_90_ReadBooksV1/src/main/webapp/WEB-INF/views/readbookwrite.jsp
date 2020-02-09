@@ -90,6 +90,7 @@
 	<div class="container">
 		<form:form class="row" modelAttribute="readBookDTO">
 			<form:input path="rb_bcode" type="hidden" />
+			<form:input path="rb_regidate" type="hidden" />
 			<div class="col-sm-4">
 				<div class="form-group">
 					<label>점수</label>

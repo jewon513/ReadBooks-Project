@@ -63,7 +63,7 @@ button:focus {
 
 	$(function(){
 		
-		$("#login").click(function(){
+		function checklogin(){
 			
 			$(".prohibition-box").css("display","block");
 			let loginData = $("#login-form").serialize()
@@ -89,6 +89,16 @@ button:focus {
 				}
 				
 			})
+			
+		}
+		
+		$("#login").click(checklogin)
+		
+		$("input").keypress(function(key){
+			
+			if(key.keyCode == 13){
+				checklogin()
+			}
 			
 		})
 		

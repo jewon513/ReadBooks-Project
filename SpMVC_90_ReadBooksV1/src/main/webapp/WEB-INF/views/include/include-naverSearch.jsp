@@ -43,7 +43,7 @@
 				<div class="col-3 justify-content-center">
 					<img class="rounded mx-auto d-block" src='${vo.image}'/>
 				</div>
-				<div class="col-9 booklist"  data-dismiss="modal" data-isbn="${vo.isbn}" data-title="${vo.title}" data-author="${vo.author}" data-publisher="${vo.pubdate}" data-price="${vo.price}" data-pubdate="${vo.pubdate}">
+				<div class="col-9 booklist"  data-dismiss="modal" data-isbn="${vo.isbn}" data-title="${vo.title}" data-author="${vo.author}" data-publisher="${vo.publisher}" data-price="${vo.price}" data-pubdate="${vo.pubdate}">
 					<p>${vo.title}</p>
 					<small>${vo.author} / ${vo.publisher} / ${vo.pubdate} / ${vo.price} </small>
 				</div>

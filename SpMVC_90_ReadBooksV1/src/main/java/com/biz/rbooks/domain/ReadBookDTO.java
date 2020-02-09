@@ -20,8 +20,7 @@ public class ReadBookDTO {
 	
 	private String rb_bcode;//	varchar2(20)
 	private String rb_date;//	varchar2(10)
-	private String rb_stime;//	varchar2(10)
-	private int rb_rtime;//	number(10,3)
+	private String rb_regidate;//	varchar2(10)
 	private String rb_subject;//	nvarchar2(20)
 	private String rb_text;//	nvarchar2(400)
 	private String rb_star;//	number
