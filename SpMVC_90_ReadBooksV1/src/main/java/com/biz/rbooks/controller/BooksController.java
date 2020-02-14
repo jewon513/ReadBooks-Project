@@ -75,6 +75,9 @@ public class BooksController {
 	@RequestMapping(value = "/search", method = RequestMethod.GET)
 	public String booksearch(@RequestParam(value ="b_name", required = false, defaultValue = "" )String b_name, Model model, @RequestParam(value = "currentPageNo", required = false, defaultValue = "1")int currentPageNo) {
 		
+
+		b_name = b_name.trim();
+		
 		PageDTO pageDTO = pageService.getPagination(booksService.getsearchBookCount(b_name), currentPageNo);
 		
 		if(pageDTO == null) {

@@ -146,9 +146,18 @@
 		// 책 검색 AJAX 부분
 		$("#bookSearch").keydown(function(key){
 		
-			let search = $("#bookSearch").val()
+			let search = $.trim($("#bookSearch").val())
 			
 			if(key.keyCode == 13){
+				
+				if (search == ""){
+					
+					return false;
+					
+				}
+				
+				$(".modal-body").html("잠시만 기다려주세요.......")
+				
 				$.ajax({
 			
 					url : "${rootPath}/books/naverSearch",

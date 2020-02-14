@@ -17,6 +17,22 @@
 			document.location.href = "${rootPath}/read/detail?b_code="+ b_code;
 
 		})
+		
+		$(".search-input").keypress(function(key){
+			
+			if(key.keyCode == 13){
+				
+				let keyword = $(".search-input").val()
+				
+				if ($.trim(keyword) == ""){
+					
+					return false;
+					
+				}
+				
+			}
+			
+		})
 
 	})
 </script>
@@ -26,6 +42,7 @@
 		cursor: pointer;
 		color: #1a82ae;
 	}
+	
 </style>
 
 <body>
@@ -79,12 +96,12 @@
 	
 	<div class="container">
 		<form class="form-inline justify-content-center" action="${rootPath}/books/search" method="get">
-	    	<input class="form-control" type="text" placeholder="Search" name="b_name">
+	    	<input class="form-control search-input" type="text" placeholder="Search" name="b_name">
  	 	</form>
 	</div>
 	
 	<div class="bottom-margin-box">
-	
+		
 	</div>
 
 </body>

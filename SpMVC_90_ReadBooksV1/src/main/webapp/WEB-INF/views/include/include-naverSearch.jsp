@@ -3,6 +3,16 @@
 <c:set var="rootPath" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 
+<style>
+
+.booklist:hover{
+	cursor: pointer;
+	background-color: #ddd;
+}
+	
+	
+</style>
+
 <script>
 	$(function() {
 
